@@ -17,7 +17,7 @@
 -(void) create {
 	UILabel* label = [UILabel new];
 	// UILable的内容
-	label.text = @"hollo World!";
+	label.text = @"hollo World,what fuck this ,how i can study ios !";
 	// UILabel文字的颜色
 	label.textColor = [UIColor blueColor];
 	// CGRect的参数分别为左上坐标,以及长和宽
@@ -36,6 +36,67 @@
 	label.shadowColor = [UIColor grayColor];
 	// 设置阴影的偏移位置
 	label.shadowOffset = CGSizeMake(5, 5);
+	// 设置text对齐模式 默认是左侧对齐 :NSTextAlignmentLeft
+	label.textAlignment = NSTextAlignmentCenter;
+	// 设置label文字的显示的行数,默认是1, 如果文字只有2行,设置5行,也是显示2行,注意为0,系统会根据文字的量自动计算文字需要的行数,并设置文字需要显示的行数
+	label.numberOfLines= 2;
+}
+
+-(void) createUIButton {
+	// 通过类方法创建对象 ,这里不能使用alloc来创建,因为UIButton是自己管理内存
+	UIButton* btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	btn.tag = 102;
+	btn.frame = CGRectMake(10, 300, 100, 40);
+	btn.backgroundColor = [UIColor whiteColor];
+	// 设置button 上的文字的大小
+	btn.titleLabel.font = [UIFont systemFontOfSize:18];
+	[btn setTitle:@"开启" forState:UIControlStateNormal];
+	[btn setTitle:@"关闭" forState:UIControlStateHighlighted];
+	[btn setTitleColor:[UIColor orangeColor] forState:UIControlStateHighlighted];
+	[btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+	[btn addTarget:self action:@selector(pressBtn:) forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:btn];
+}
+
+-(void) createImageButton {
+	// 设置图片背景button 使用自定义类型
+	UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
+	btn.tag = 101;
+	btn.frame = CGRectMake(200, 300, 100, 100);
+	UIImage* icon01 = [UIImage imageNamed:@"btn01.png"];
+	UIImage* icon02 = [UIImage imageNamed:@"btn02.png"];
+	[btn setImage:icon01 forState:UIControlStateNormal];
+	[btn setImage:icon02 forState:UIControlStateHighlighted];
+	// 添加点击事件函数
+	// 在btn按下抬起这个状态的时候触发添加的pressBtn函数,可以添加多个,多个按钮也可以同时添加同一个处理函数
+	// p1 :谁来实现处理函数,就写谁
+	// p2 :调用的处理事件函数
+	// p3 :UIControlEvent :事件处理函数类型
+	[btn addTarget:self action:@selector(pressBtn:) forControlEvents:UIControlEventTouchUpInside];
+	[btn addTarget:self action:@selector(touchBtn) forControlEvents:UIControlEventTouchDown];
+	[self.view addSubview:btn];
+}
+
+-(void) touchBtn {
+	NSLog(@"触碰了");
+}
+
+-(void) pressBtn {
+	NSLog(@"点击了");
+}
+
+// 当多个button都调用了该函数,如何区分是哪个Button,此时参数btn就可以起到区分的作用btn.target = 101;
+-(void) pressBtn : (UIButton*) btn {
+	
+	if (btn.tag == 101) {
+		
+		NSLog(@"btn01");
+		
+	} else if (btn.tag == 102){
+		
+		NSLog(@"btn02");
+	}
+	
 }
 
 - (void)viewDidLoad {
@@ -43,6 +104,8 @@
 	
 	// 调用创键UI函数
 	[self create];
+	[self createUIButton];
+	[self createImageButton];
 }
 
 
