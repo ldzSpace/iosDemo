@@ -14,8 +14,35 @@
 
 @implementation ViewController
 
+-(void) createView {
+	// UIView是所有的view的基类,屏幕上所有能看到对象那个对象都是UIView的子类
+	// UIView是一个矩形对象,是一个视图对象
+	UIView *view = [UIView new];
+	view.frame = CGRectMake(210, 210, 30, 30);
+	view.backgroundColor = [UIColor redColor];
+	[self.view addSubview:view];
+	// 设置是否隐藏
+	view.hidden = NO;
+	// 设置是否透明 alpha = 1 : 是不透明,0是全透明
+	view.alpha = 0.2;
+	// 是否显示不透明
+	view.opaque = NO;
+	// 从父视图中删除
+	[view removeFromSuperview];
+	
+	// 层级关系,先添加的view是在最下面,最新添加的就会在最上层,添加的先后关系决定这绘制顺序
+	// 比如添加了三个view,下面的方法可以设置那个view放置到最前面
+	[self.view bringSubviewToFront:view];
+	// 下面的方法可以设置那个view放置到最后面
+	[self.view sendSubviewToBack:view];
+	// subView可以管理所有self.view的子视图的数组
+	UIView *viewBack = self.view.subviews[0];
+	// 拿到父视图
+	self.view.superview;
+}
+
 -(void) create {
-	UILabel* label = [UILabel new];
+	UILabel *label = [UILabel new];
 	// UILable的内容
 	label.text = @"hollo World,what fuck this ,how i can study ios !";
 	// UILabel文字的颜色
@@ -44,7 +71,7 @@
 
 -(void) createUIButton {
 	// 通过类方法创建对象 ,这里不能使用alloc来创建,因为UIButton是自己管理内存
-	UIButton* btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+	UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	btn.tag = 102;
 	btn.frame = CGRectMake(10, 300, 100, 40);
 	btn.backgroundColor = [UIColor whiteColor];
@@ -60,11 +87,11 @@
 
 -(void) createImageButton {
 	// 设置图片背景button 使用自定义类型
-	UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
+	UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
 	btn.tag = 101;
 	btn.frame = CGRectMake(200, 300, 100, 100);
-	UIImage* icon01 = [UIImage imageNamed:@"btn01.png"];
-	UIImage* icon02 = [UIImage imageNamed:@"btn02.png"];
+	UIImage *icon01 = [UIImage imageNamed:@"btn01.png"];
+	UIImage *icon02 = [UIImage imageNamed:@"btn02.png"];
 	[btn setImage:icon01 forState:UIControlStateNormal];
 	[btn setImage:icon02 forState:UIControlStateHighlighted];
 	// 添加点击事件函数
@@ -86,7 +113,7 @@
 }
 
 // 当多个button都调用了该函数,如何区分是哪个Button,此时参数btn就可以起到区分的作用btn.target = 101;
--(void) pressBtn : (UIButton*) btn {
+-(void) pressBtn : (UIButton *) btn {
 	
 	if (btn.tag == 101) {
 		
@@ -104,6 +131,7 @@
 	
 	// 调用创键UI函数
 	[self create];
+	[self createView];
 	[self createUIButton];
 	[self createImageButton];
 }
