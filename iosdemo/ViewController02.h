@@ -19,9 +19,21 @@
 	UIButton* _myButton02;
 	UISwitch* _mySwitch;
 	UISlider* _mySlider;
+	UIStepper* _myStepper;
+	UIAlertView* _alterView;
 	UIProgressView* _myProgress;
+	UISegmentedControl* _segControl;
+	UIActivityIndicatorView* _activtiyIndicator;
 }
 
+// 警告对话框属性对象
+@property (retain, nonatomic) UIAlertView* myAlterView;
+// 等待提示对象
+@property (retain, nonatomic) UIActivityIndicatorView* myIndicatorView;
+// 分栏控制器属性对象
+@property (retain, nonatomic) UISegmentedControl* mySegControl;
+// 步进器的属性对象
+@property (retain, nonatomic) UIStepper* myStepper;
 // 按钮01属性对象
 @property (retain, nonatomic) UIButton* myButton01;
 // 按钮02属性对象
