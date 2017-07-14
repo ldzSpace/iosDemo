@@ -15,6 +15,7 @@
 		68106C101F176EE500074095 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68106C0F1F176EE500074095 /* Assets.xcassets */; };
 		68106C131F17810600074095 /* btn01.png in Resources */ = {isa = PBXBuildFile; fileRef = 68106C111F17810600074095 /* btn01.png */; };
 		68106C141F17810600074095 /* btn02.png in Resources */ = {isa = PBXBuildFile; fileRef = 68106C121F17810600074095 /* btn02.png */; };
+		68106C171F185FB600074095 /* ViewController02.m in Sources */ = {isa = PBXBuildFile; fileRef = 68106C161F185FB600074095 /* ViewController02.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		68106C0F1F176EE500074095 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68106C111F17810600074095 /* btn01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn01.png; path = iosdemo/btn01.png; sourceTree = "<group>"; };
 		68106C121F17810600074095 /* btn02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn02.png; path = iosdemo/btn02.png; sourceTree = "<group>"; };
+		68106C151F185FB600074095 /* ViewController02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController02.h; sourceTree = "<group>"; };
+		68106C161F185FB600074095 /* ViewController02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController02.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,8 @@
 				68106BFC1F17572000074095 /* AppDelegate.m */,
 				68106BFE1F17572000074095 /* ViewController.h */,
 				68106BFF1F17572000074095 /* ViewController.m */,
+				68106C151F185FB600074095 /* ViewController02.h */,
+				68106C161F185FB600074095 /* ViewController02.m */,
 				68106C011F17572000074095 /* Main.storyboard */,
 				68106C061F17572000074095 /* LaunchScreen.storyboard */,
 				68106C091F17572000074095 /* Info.plist */,
@@ -160,6 +165,7 @@
 			files = (
 				68106C001F17572000074095 /* ViewController.m in Sources */,
 				68106BFD1F17572000074095 /* AppDelegate.m in Sources */,
+				68106C171F185FB600074095 /* ViewController02.m in Sources */,
 				68106BFA1F17572000074095 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

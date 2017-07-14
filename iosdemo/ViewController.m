@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ViewController02.h"
 
 @interface ViewController ()
 
@@ -126,9 +127,45 @@
 	
 }
 
+// 当前控制器的视图即将显示时,调用此函数
+// 视图分为: 1 显示前, 2 正在处于显示状态 3 已经被隐藏
+// 参数: 表示切换时候动画是否显示
+// 每次显示都会调用,但是viewDidLoad 自会加载一次相当于onCreate
+// 下面这些方法相当于android的生命周期方法,onstart(),onResume() onStop() ,onPause()
+-(void) viewWillAppear:(BOOL)animated {
+	NSLog(@"视图即将出现 :viewWillAppear");
+}
+
+// 视图即将消失,调用此函数
+-(void) viewWillDisappear:(BOOL)animated {
+	NSLog(@"视图即将消失 : viewWillDisappear");
+}
+
+// 当前视图已经显示到了屏幕后瞬间调用此函数
+-(void) viewDidAppear:(BOOL)animated {
+	NSLog(@"视图已经出现 : viewDidAppear");
+}
+
+// 当前视图已经消失了
+-(void) viewDidDisappear:(BOOL)animated {
+	NSLog(@"视图已经消失 : viewDidDisappear");
+}
+
+// 触摸时调用该方法
+-(void) touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+	// 创键新的视图控制器
+	ViewController02* vc = [ViewController02 new];
+	// 显示新的视图控制器到屏幕上
+	// p1:新的视图控制器对象
+	// p2:是否使用动画切换效果
+	// p3:切换结束后功能调用,不需要传nil值即可
+	[self presentViewController : vc animated : YES completion : nil];
+}
+
 // 当视图控制器第一次被加载显示视图时,调用此函数
 // 布局初始化视图来使用,初始化资源使用
-- (void)viewDidLoad {
+// 只会加载一次
+-(void) viewDidLoad {
 	[super viewDidLoad];
 	
 	// 调用创键UI函数
@@ -136,12 +173,12 @@
 	[self createView];
 	[self createUIButton];
 	[self createImageButton];
+	NSLog(@"视图第一次创键 : viewDidLoad");
 }
 
 // 当系统内存过低时,会发起警告信息,调用此函数
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
-	
 }
 
 

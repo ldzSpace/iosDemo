@@ -23,21 +23,23 @@
 	// UIScreen:表示屏幕硬件的表示类
 	// mainScreen 获取主屏幕的设备信息 硬件表示对象
 	// bounds 表示屏幕的宽高值
-	self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-	// 创建一个视图控制器作为UIWindow的根视图控制器,Main.storyboard就是通过该对象加载进来
-	// 整个UIKit框架只有一个根视图控制器,属于window
-	// 视图控制器用来管理界面和处理界面的逻辑类对象
-	// 视图控制器相当于android里面的activity
-	self.window.rootViewController = [UIViewController new];
-	
-	// 设置背景色
-	self.window.backgroundColor = [UIColor orangeColor];
-	// 使window有效并显示到屏幕上,window是屏幕上显示的所有能看见的区域,包括状态栏
-	[self.window makeKeyAndVisible];
+//	self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//	// 创建一个视图控制器作为UIWindow的根视图控制器,Main.storyboard就是通过该对象加载进来
+//	// 整个UIKit框架只有一个根视图控制器,属于window
+//	// 视图控制器用来管理界面和处理界面的逻辑类对象
+//	// 视图控制器相当于android里面的activity
+//	self.window.rootViewController = [UIViewController new];
+//	
+//	// 设置背景色
+//	self.window.backgroundColor = [UIColor orangeColor];
+//	// 使window有效并显示到屏幕上,window是屏幕上显示的所有能看见的区域,包括状态栏
+//	[self.window makeKeyAndVisible];
 	// 每个UIView都包含window属性,这些window都是指向唯一的window
 	// UIView *view = [UIView new];
 	// view.backgroundColor = [UIColor blueColor];
-	//
+	
+	// 记住: 我们这里是删除了info.plist中的Main StoryBoard file base name
+	// 上面的代码是不用写的,因为系统框架会自动根据Main storyBoard file这个行去加载创键跟ViewControl
 	return YES;
 }
 
