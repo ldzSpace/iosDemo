@@ -47,7 +47,7 @@
 	// UILable的内容
 	label.text = @"hollo World,what fuck this ,how i can study ios !";
 	// UILabel文字的颜色
-	label.textColor = [UIColor blueColor];
+	label.textColor = [UIColor blueColor]; 
 	// CGRect的参数分别为左上坐标,以及长和宽
 	label.frame = CGRectMake(100, 100, 160, 40);
 	// UILabel的背景色
