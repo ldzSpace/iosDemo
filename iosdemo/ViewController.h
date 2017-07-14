@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+// 所有的控制器都是需要自定义来完成,继承与官方的UIViewController
 @interface ViewController : UIViewController
 
 

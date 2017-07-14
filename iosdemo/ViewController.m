@@ -55,7 +55,7 @@
 	label.font = [UIFont systemFontOfSize:12];
 	// 设置整个视图的背景色
 	//self.view.backgroundColor = [UIColor yellowColor];
-	// 添加控件到view,这view就是整个当前的视图,相当于android的activity
+	// 添加控件到view,这view就是整个当前的视图(根视图)
 	[self.view addSubview:label];
 	
 	// lable的高级属性
@@ -126,6 +126,8 @@
 	
 }
 
+// 当视图控制器第一次被加载显示视图时,调用此函数
+// 布局初始化视图来使用,初始化资源使用
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
@@ -136,7 +138,7 @@
 	[self createImageButton];
 }
 
-
+// 当系统内存过低时,会发起警告信息,调用此函数
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
 	
