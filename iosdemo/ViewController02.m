@@ -15,7 +15,8 @@
 @implementation ViewController02
 
 // 属性和成员变量的同步
-@synthesize  timeView = _timeView;
+@synthesize timeView = _timeView;
+@synthesize mySwitch = _mySwitch;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,6 +38,28 @@
 	[self.view addSubview:btn];
 	[self.view addSubview:btn01];
 	
+	
+	// 创建一个开关控件
+	// 继承与UIView
+	_mySwitch = [[UISwitch alloc] init];
+	// 苹果官方的控件的位置设置位置x,y是可以改变,但是宽高是不可以改变,设置任何值都是无效的
+	_mySwitch.frame = CGRectMake(100, 100, 10, 10);
+	_mySwitch.on = YES;
+	// 也可以采用set方法
+	[_mySwitch setOn: YES];
+	[self.view addSubview: _mySwitch];
+	// 设置开启状态的风格颜色
+	[_mySwitch setOnTintColor:[UIColor redColor]];
+	// 设置开关圆按钮的颜色
+	[_mySwitch setThumbTintColor:[UIColor yellowColor]];
+	// 设置整体的风格颜色
+	[_mySwitch setTintColor:[UIColor cyanColor]];
+	// 设置开关监听事件
+	[_mySwitch addTarget:self action:@selector(swChange:) forControlEvents:UIControlEventValueChanged];
+}
+
+- (void)swChange : (UISwitch*) sw {
+	NSLog(@"当前开关的状态 : %@",sw.isOn == YES ? @"开" : @"关");
 }
 
 - (void)pressStart {
@@ -73,7 +96,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 
 @end

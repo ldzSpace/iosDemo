@@ -15,7 +15,11 @@
 	// 并通过此消息调用相应的事件函数
 	// 通过此函数可以在固定的时间段完成一个根据事件间隔的任务
 	NSTimer* _timeView;
+	UISwitch* _mySwitch;
 }
+
+// shitch属性对象
+@property (retain, nonatomic) UISwitch* mySwitch;
 
 // 定时器的属性对象
 @property (retain, nonatomic) NSTimer* timeView;
